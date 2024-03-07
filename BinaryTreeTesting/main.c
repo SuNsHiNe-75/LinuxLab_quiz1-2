@@ -1,6 +1,6 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 #include <time.h>
 
 #include "bt.h"
@@ -14,7 +14,8 @@ void freeTree(struct TreeNode *root)
     free(root);
 }
 
-void postorderTraversal(struct TreeNode *root, int *result, int *index) {
+void postorderTraversal(struct TreeNode *root, int *result, int *index)
+{
     if (!root)
         return;
 
@@ -25,7 +26,8 @@ void postorderTraversal(struct TreeNode *root, int *result, int *index) {
     result[(*index)++] = root->val;
 }
 
-bool test_buildTree() {
+bool test_buildTree()
+{
     int preorder[] = {1, 2, 4, 5, 3};
     int inorder[] = {4, 2, 5, 1, 3};
     int expected_postorder[] = {4, 5, 2, 3, 1};
@@ -56,13 +58,18 @@ bool test_buildTree() {
     return result;
 }
 
-int main() {
+int main()
+{
     srand(time(NULL));
 
     if (test_buildTree()) {
-        printf("Test passed: The tree was successfully constructed and matches the expected postorder.\n");
+        printf(
+            "Test passed: The tree was successfully constructed and matches "
+            "the expected postorder.\n");
     } else {
-        printf("Test failed: The tree construction failed or the generated postorder does not match the expected one.\n");
+        printf(
+            "Test failed: The tree construction failed or the generated "
+            "postorder does not match the expected one.\n");
     }
 
     return 0;
